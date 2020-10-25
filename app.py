@@ -74,7 +74,7 @@ def send_message(recipient_id, response):
     bot.send_text_message(recipient_id, response)
     return "success"
 
-path = Path()
+path = Path("path")
 path1 = Path("./models")
 learn = load_learner(path1, 'export34.pkl')
 
