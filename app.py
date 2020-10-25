@@ -13,7 +13,6 @@ import numpy as np
 import wikipedia as wk
 import json
 import pickle
-import torchvision.transforms as T
 
 
 # Import fast.ai Library
@@ -92,8 +91,8 @@ def model_predict(url):
     # url = flask.request.args.get("url")
     response = requests.get(url)
     img = PILImage.create(BytesIO(response.content))
-    pred_class,pred_idx,outputs = learn.predict(img)
-    img_message = str(pred_class)
+    pred_text = learn.predict(img)
+    img_message = str(pred_text)
     wiki_msg = re.sub("\d+\s\d+\.\d+", "", img_message)
     wiki_info = wk.summary(wiki_msg, sentences = 3)
     wiki_result=(f'Result: {img_message}\n'
