@@ -76,7 +76,7 @@ def send_message(recipient_id, response):
 
 path = Path()
 path1 = Path("./models")
-learn = load_learner(path1, 'export34.pkl', cpu=True)
+learn = load_learner(path1, 'export34.pkl')
 
 # Process the image and prediction
 @app.route('/analyse', methods=['GET', 'POST'])
