@@ -10,7 +10,6 @@ import glob
 import re
 from pathlib import Path
 import wikipedia as wk
-import fastai
 import json
 
 # Import fast.ai Library
