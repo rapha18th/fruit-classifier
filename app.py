@@ -14,7 +14,7 @@ import json
 
 # Import fast.ai Library
 from fastai import *
-from fastai.vision.all import *
+from fastai.vision import *
 
  # Initializing our Flask application
 app = Flask(__name__)      
@@ -75,8 +75,8 @@ def send_message(recipient_id, response):
     return "success"
 
 path = Path("path")
-file = Path("./models/export34.pkl")
-learn = load_learner(file, cpu=True)
+path1 = Path("./models")
+learn = load_learner(path1, 'export34.pkl')
 
 # Process the image and prediction
 @app.route('/analyse', methods=['GET', 'POST'])
