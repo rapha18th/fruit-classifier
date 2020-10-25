@@ -8,9 +8,11 @@ import sys
 import os
 import glob
 import re
-from pathlib import Path
+import numpy as np
+#from pathlib import Path
 import wikipedia as wk
 import json
+import pickle
 
 # Import fast.ai Library
 from fastai import *
@@ -74,9 +76,9 @@ def send_message(recipient_id, response):
     bot.send_text_message(recipient_id, response)
     return "success"
 
-path = Path("path")
-path1 = Path("./models")
-learn = load_learner(path1, 'export34.pkl')
+path = Path()
+Path().ls(file_exts='.pkl')
+learn = load_learner(path/'models/export34.pkl')
 
 # Process the image and prediction
 @app.route('/analyse', methods=['GET', 'POST'])
