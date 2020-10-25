@@ -16,7 +16,6 @@ import json
 # Import fast.ai Library
 from fastai import *
 from fastai.vision import *
-from fastai.vision.all import *
 
  # Initializing our Flask application
 app = Flask(__name__)      
