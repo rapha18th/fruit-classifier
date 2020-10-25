@@ -74,7 +74,7 @@ def send_message(recipient_id, response):
     bot.send_text_message(recipient_id, response)
     return "success"
 
-path = Path("path")
+path = Path()
 learn = load_learner(path, 'export34.pkl')
 
 # Process the image and prediction
