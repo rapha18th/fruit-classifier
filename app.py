@@ -13,8 +13,8 @@ import wikipedia as wk
 import json
 
 # Import fast.ai Library
-from fastai2 import *
-from fastai2.vision.all import *
+from fastai import *
+from fastai.vision.all import *
 
  # Initializing our Flask application
 app = Flask(__name__)      
