@@ -11,6 +11,7 @@ import re
 from pathlib import Path
 import wikipedia as wk
 import json
+import fastai
 
 # Import fast.ai Library
 from fastai import *
