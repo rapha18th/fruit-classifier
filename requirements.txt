@@ -43,8 +43,8 @@ spacy==2.3.2
 srsly==1.0.2
 thinc==7.4.1
 threadpoolctl==2.1.0
-https://download.pytorch.org/whl/cpu/torch-1.6.0-cp36-cp36m-linux_x86_64.whl
-https://download.pytorch.org/whl/cpu/torchvision-0.7.0-cp36-cp36m-linux_x86_64.whl
+https://download.pytorch.org/whl/cpu/torch-1.6.0%2Bcpu-cp38-cp38-linux_x86_64.whl
+https://download.pytorch.org/whl/cpu/torchvision-0.7.0%2Bcpu-cp37-cp37m-linux_x86_64.whl
 #torch==1.6.0
 #torchvision==0.7.0
 tqdm==4.50.2
