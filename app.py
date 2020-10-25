@@ -8,7 +8,7 @@ import sys
 import os
 import glob
 import re
-from pathlib import Path
+#from pathlib import Path
 import wikipedia as wk
 import json
 
@@ -74,9 +74,7 @@ def send_message(recipient_id, response):
     bot.send_text_message(recipient_id, response)
     return "success"
 
-path = Path("path")
-path1 = Path("./models")
-learn = load_learner(path1, 'export34.pkl')
+learn = load_learner('export34.pkl')
 
 # Process the image and prediction
 @app.route('/analyse', methods=['GET', 'POST'])
