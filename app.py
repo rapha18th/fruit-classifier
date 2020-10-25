@@ -89,8 +89,7 @@ def model_predict(url):
     """
     # url = flask.request.args.get("url")
     response = requests.get(url)
-    img = Image.open(BytesIO(response.content)).to_thumb(224)
-    pred_class,pred_idx,outputs = learn.predict(img)
+    pred_class,pred_idx,outputs = learn.predict(BytesIO(response.content))
     img_message = str(pred_class)
     wiki_msg = re.sub("\d+\s\d+\.\d+", "", img_message)
     wiki_info = wk.summary(wiki_msg, sentences = 3)
