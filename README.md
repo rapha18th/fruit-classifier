@@ -319,7 +319,7 @@ Then send a fruit image as a message to your facebook page and you get something
 Send text:
 [![Whats-App-Image-2020-10-26-at-19-04-30.jpg](https://i.postimg.cc/vHKsVgFc/Whats-App-Image-2020-10-26-at-19-04-30.jpg)](https://postimg.cc/fJYp4bbN)
 
-Now you can add your friends as testers or apply for app review to share the bot with world.
+To share it with your friends you can add the as test users or send your application for app review to share the bot with world.
 
 This is the end of the tutorial. I hope you enjoyed the tutorial, you can repeat the steps with an image dataset of your choosing or add features of your own.
 
