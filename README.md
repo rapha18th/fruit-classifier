@@ -5,7 +5,7 @@
 In this tutorial, we will train an image classifier on the kaggle fruit 360 dataset using the fastai we will then deploy it as a bot on the messenger platform. The key things we will explore is how to:
 
 *   Use kaggle notebooks to build an image classifier using transfer learning with the fastai library.
-*   How to deploy it using the messenger platform's image upload feature. The messenger platform has a rich interface with all the features needed to deliver an app to users. It is also home to over a billion users so in essence facebook provides you the tools to build your product and the market itself.
+*   How to deploy it using the messenger platform's image upload feature. The messenger platform has a rich interface with all the features needed to deliver an app to users. It is also home to over a billion users so in essence facebook provides you the tools to build your own product and the market itself.
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ Make sure you enable GPU under accelerator (Kaggle may ask for phone verificatio
 Your notebook instance should look like this now with your settings having GPU and internet enabled.
 [![Screenshot-2020-10-26-at-12-26-00.png](https://i.postimg.cc/SxcRFMvw/Screenshot-2020-10-26-at-12-26-00.png)](https://postimg.cc/NKfBR5Y4)
 
-After the session starts we can begin coding. Add every chunk of code below in its own block of code in the notebook. Run each block after upon entering the code.
+After the session starts we can begin coding. Add every chunk of code below in its own block in the notebook. Run each block after entering the code.
 
 Import the following libraries:
 ```
@@ -111,7 +111,7 @@ dls.show_batch(max_n=6, nrows=2)
 Output:
 [![results-19-0.png](https://i.postimg.cc/G2FrX4cd/results-19-0.png)](https://postimg.cc/8Jzq5PJ0)
 
-Now on to model selection,we are using transfer learning so we will choose a pretrained model, for this example we will choose resnet34.Resnet 34 is a convolutional neural network(CNN) and an image classification model pretrained on ImageNet dataset.CNNs are state-of-the-art algorithms which have been optimised for image classification. Some of the main benefits of transfer learning are reduction of computational time,processing power and data requirements. Knowledge of previously learned features will be passed on to our classifier. Fastai allows us to pick the metrics we want as well and in this case I chose accuracy and error_rate as we have a classification problem.
+Now on to model selection,we are using transfer learning so we will choose a pretrained model, for this example I chose resnet34.Resnet 34 is a convolutional neural network(CNN) and an image classification model pretrained on ImageNet dataset.CNNs are state-of-the-art algorithms which have been optimised for image classification. Some of the main benefits of transfer learning are reduction of computational time,processing power and data requirements. Knowledge of previously learned features will be passed on to our classifier. Fastai allows us to pick the metrics we want as well and in this case I chose accuracy and error_rate as we have a classification problem.
 
 Selection of our model:
 ```
@@ -127,7 +127,7 @@ Output:
 `SuggestedLRs(lr_min=0.010000000149011612, lr_steep=0.0063095735386013985)`
 [![results-23-2.png](https://i.postimg.cc/T2gmMxds/results-23-2.png)](https://postimg.cc/c616wV87)
 
-We pass in the suggested learning rate and train our model which is also evident as the steepest point in the above plot. This should take around 20 minutes to complete, enought time for you to take a break and enjoy your favourite beverage:
+We pass in the suggested learning rate and train our model which is also evident as the steepest point in the above plot. This should take around 20 minutes to complete, enough time for you to take a break and enjoy your favourite beverage:
 ```
 learn.fine_tune(4, 1e-2)
 ```
@@ -168,7 +168,7 @@ img
 Output:
 [![results-38-0.png](https://i.postimg.cc/pd9TxQHZ/results-38-0.png)](https://postimg.cc/Ty6GJDhL)
 
-Let us do the reverse where we see the image first before we predict:
+Good guess. Let us do the reverse where we see the image first before we predict:
 ```
 img = Image.open(test[1000]).to_thumb(224)
 img
@@ -190,13 +190,15 @@ After follwing these steps in order we should save(and commit) our notebook that
 [![Screenshot-2020-10-26-at-15-45-35.png](https://i.postimg.cc/Hn4YkBnq/Screenshot-2020-10-26-at-15-45-35.png)](https://postimg.cc/xN8DsGK5)
 Click on save version on the top right hand corner and choose the `save and run all (commit)` option. You can also use the save feature to save your progress at any point during your work.
 
+The complete notebook is also available in the notebooks directory of this repository
+
 After saving our notebook we can go in the output section and download our model
 [![download.png](https://i.postimg.cc/prNQHX50/download.png)](https://postimg.cc/6204VK0R)
-Download the model and replace the one in the models directory of this repository in your computer.
+Download the model and replace the one in the models directory of this repository in your computer with it.
 
 Now on to deployment.
 
-## Create Facebook App
+## Create a Facebook Application
 
 Go to the [Facebook developer portal](https://developers.facebook.com/apps/) under `my apps` and create a new app with a name of your choice
 
@@ -207,7 +209,7 @@ Go to the [Facebook developer portal](https://developers.facebook.com/apps/) und
 Click on setup under messenger:
 [![messengee.png](https://i.postimg.cc/76MPHwBH/messengee.png)](https://postimg.cc/CB5pJTTX)
 
-Create a new page or add yor bot to an existing page:
+Create a new page or add your bot to an existing page:
 [![pagee.png](https://i.postimg.cc/XYk0BQfL/pagee.png)](https://postimg.cc/87cYqdnf)
 
 Generate an access token:
@@ -280,26 +282,24 @@ The above function takes in the image url and makes a prediction using the model
 ## Heroku
 By now you should have a heroku account and installed the heroku command line interface.
 
-To start open the cloned/downloaded repository in visual studio code or your favourite IDE.
-if you downloaded
+To start open the cloned repository in visual studio code or your favourite IDE.
 Open the terminal and run:
 ```
-heroku login
+$ heroku login
 ```
 after login:
 ```
-heroku create
+$ heroku create
 ```
-And then let us configure our variables, this our access token from facebook and a verify token that you create yourself(make sure it is unique and keep it for later):
-
+Let us configure our variables, these are the access token from facebook and a verify token that you create yourself(make sure it is unique and keep it safe for later):
 ```
-heroku config:set ACCESS_TOKEN=xxxxxx
-```
-```
-heroku config:set VERIFY_TOKEN=xxxxxx
+$ heroku config:set ACCESS_TOKEN=xxxxxx
 ```
 ```
-git push heroku master
+$ heroku config:set VERIFY_TOKEN=xxxxxx
+```
+```
+$ git push heroku master
 ```
 make note of the url created by heroku we also need it for later.
 When you open the url you should be able to see this in your browser, if you have done everything correctly:
@@ -310,10 +310,10 @@ When you open the url you should be able to see this in your browser, if you hav
 Under the messenger settings again add the callback url which is the heroku url of our webhook, you will also be asked for the verify token, it should be the same as the one you created earlier for facebook to verify.
 [![Screenshot-2020-10-25-at-11-07-39.png](https://i.postimg.cc/1X9Gt7M6/Screenshot-2020-10-25-at-11-07-39.png)](https://postimg.cc/N9z9C43f)
 
-Still under Messenger setting click on Add page subscriptions and tick the boxes like below:
+Still under the messenger settings click on Add page subscriptions and tick the boxes like below:
 [![Screenshot-2020-10-25-at-20-26-47.png](https://i.postimg.cc/SxcrN9fW/Screenshot-2020-10-25-at-20-26-47.png)](https://postimg.cc/CRLDczt1)
 
-Then send a fruit image as a message to your facebook page and:
+Then send a fruit image as a message to your facebook page and you get something like this:
 [![Whats-App-Image-2020-10-26-at-18-57-33.jpg](https://i.postimg.cc/KYj2CGD6/Whats-App-Image-2020-10-26-at-18-57-33.jpg)](https://postimg.cc/0zTFwq3n)
 
 Send text:
@@ -321,7 +321,7 @@ Send text:
 
 Now you can add your friends as testers or apply for app review to share the bot with world.
 
-That is it. I hope you enjoyed the tutorial, you can repeat the steps with an image dataset of your choosing or add features of your own.
+This is the end of the tutorial. I hope you enjoyed the tutorial, you can repeat the steps with an image dataset of your choosing or add features of your own.
 
 ## References
 * https://docs.fast.ai/tutorial.vision
