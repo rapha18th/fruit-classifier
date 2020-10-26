@@ -94,7 +94,8 @@ def model_predict(url):
     prediction = learn.predict(img)[0]
     img_message = str(prediction)
     if img_message == "powell sweetie":
-        return "orange"
+        img_message = "orange"
+        return img_message
     else:
         wiki_msg = re.sub("\d+\s\d+\.\d+", "", img_message)
         wiki_info = wk.summary(wiki_msg, sentences = 3)
