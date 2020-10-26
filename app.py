@@ -95,12 +95,13 @@ def model_predict(url):
     img_message = str(prediction)
     if img_message == "powell sweetie":
         return "orange"
-    wiki_msg = re.sub("\d+\s\d+\.\d+", "", img_message)
-    wiki_info = wk.summary(wiki_msg, sentences = 3)
-    wiki_result=(f'Result: {img_message}\n'
+    else:
+        wiki_msg = re.sub("\d+\s\d+\.\d+", "", img_message)
+        wiki_info = wk.summary(wiki_msg, sentences = 3)
+        wiki_result=(f'Result: {img_message}\n'
             f'\n'
            f'Summary: {wiki_info}')
-    return wiki_result
+        return wiki_result
 
 # Add description here about this if statement.
 if __name__ == "__main__":
