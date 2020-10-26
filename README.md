@@ -5,7 +5,7 @@
 In this tutorial, we will train an image classifier on the kaggle fruit 360 dataset using the fastai we will then deploy it as a bot on the messenger platform. The key things we will explore is how to:
 
 *   Use kaggle notebooks to build an image classifier using transfer learning with the fastai library.
-*   How to deploy it using the messenger platform's image upload feature.
+*   How to deploy it using the messenger platform's image upload feature. The messenger platform has a rich interface with all the features needed to deliver an app to users. It is also home to over a billion users so in essence facebook provides you the tools to build your product and the market itself.
 
 ## Prerequisites
 
@@ -264,14 +264,11 @@ The model_predict function:
 # Process the image and prediction
 @app.route('/analyse', methods=['GET', 'POST'])
 def model_predict(url):
-    """
-       model_predict will return the preprocessed image
-    """
     response = requests.get(url)
     img = PILImage.create(BytesIO(response.content))
     prediction = learn.predict(img)[0]
     img_message = str(prediction)
-    wiki_msg = re.sub("\d+\s\d+\.\d+", "", img_message) 
+    wiki_msg = re.sub("\d+\s\d+\.\d+", "", img_message)
     wiki_info = wk.summary(wiki_msg, sentences = 3)
     wiki_result=(f'Result: {img_message}\n'
             f'\n'

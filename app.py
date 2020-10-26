@@ -85,15 +85,13 @@ learn = load_learner(path/'models/export34.pkl')
 # Process the image and prediction
 @app.route('/analyse', methods=['GET', 'POST'])
 def model_predict(url):
-    """
-       model_predict will return the preprocessed image
-    """
-    # url = flask.request.args.get("url")
     response = requests.get(url)
     img = PILImage.create(BytesIO(response.content))
     prediction = learn.predict(img)[0]
     img_message = str(prediction)
-    return img_message
+    pred_result= (f'prediction: {img_message}\n')
+            
+    return pred_result
 
 # Add description here about this if statement.
 if __name__ == "__main__":
@@ -108,10 +106,6 @@ error handling needs to be done before it can be properly used '''
 
 '''
 def model_predict(url):
-    """
-       model_predict will return the preprocessed image
-    """
-    # url = flask.request.args.get("url")
     response = requests.get(url)
     img = PILImage.create(BytesIO(response.content))
     prediction = learn.predict(img)[0]
