@@ -1,4 +1,4 @@
-#  build an image classifier using pytorch/fastai and deploy it as a bot on the messenger platform
+#  Build an image classifier using pytorch/fastai and deploy it as a bot on the messenger platform
 
 ## Overview
 
@@ -54,7 +54,7 @@ path = '../input/fruits/fruits-360'
 ```
 fruit_data = get_image_files(path)
 ```
-The get_image_files above is a function takes a path and returns a list of images all the images in that path.
+The get_image_files function above is a takes a path and returns a list of images all the images in that path.
 
 Let us take a look at the data:
 ```
@@ -192,7 +192,7 @@ Click on save version on the top right hand corner and choose the `save and run 
 
 After saving our notebook we can go in the output section and download our model
 [![download.png](https://i.postimg.cc/prNQHX50/download.png)](https://postimg.cc/6204VK0R)
-Download the model and put it in the models directory of this repository in your computer.
+Download the model and replace the one in the models directory of this repository in your computer.
 
 Now on to deployment.
 
@@ -327,10 +327,14 @@ Now you can add your friends as testers or apply for app review to share the bot
 That is it. I hope you enjoyed the tutorial, you can repeat the steps with an image dataset of your choosing or add features of your own.
 
 ## References
-https://docs.fast.ai/tutorial.vision
-https://www.twilio.com/blog/2017/12/facebook-messenger-bot-python.html
-https://github.com/fastai/fastbook
+* https://docs.fast.ai/tutorial.vision
 
+* https://www.twilio.com/blog/2017/12/facebook-messenger-bot-python.html
+
+* https://github.com/fastai/fastbook
+
+## License
+Build an image classifier using pytorch/fastai and deploy it as a bot on the messenger platform is licensed, as found in the [LICENSE](https://github.com/rapha18th/fruit-classifier/blob/master/LICENSE) file.
 
 
 
