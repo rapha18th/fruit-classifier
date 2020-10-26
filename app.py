@@ -93,6 +93,8 @@ def model_predict(url):
     img = PILImage.create(BytesIO(response.content))
     prediction = learn.predict(img)[0]
     img_message = str(prediction)
+    if img_message == "powell sweetie":
+        return "orange"
     wiki_msg = re.sub("\d+\s\d+\.\d+", "", img_message)
     wiki_info = wk.summary(wiki_msg, sentences = 3)
     wiki_result=(f'Result: {img_message}\n'
