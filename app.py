@@ -101,9 +101,9 @@ if __name__ == "__main__":
 
 
 # comment
-''' Below The predict function with wikipedia included,I had to remove it because
- some predicted classes were throwing a missing id exception and crashing the app,
-so some error handling needs to be done before it can be used '''
+''' Below is the predict function with wikipedia included,I had to remove it because
+some predicted classes were throwing a missing id exception and crashing the app,
+error handling needs to be done before it can be properly used '''
 
 
 '''
