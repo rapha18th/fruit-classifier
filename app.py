@@ -93,17 +93,33 @@ def model_predict(url):
     img = PILImage.create(BytesIO(response.content))
     prediction = learn.predict(img)[0]
     img_message = str(prediction)
-    if img_message == "powell sweetie":
-        img_message = "orange"
-        return img_message
-    else:
-        wiki_msg = re.sub("\d+\s\d+\.\d+", "", img_message)
-        wiki_info = wk.summary(wiki_msg, sentences = 3)
-        wiki_result=(f'Result: {img_message}\n'
-            f'\n'
-           f'Summary: {wiki_info}')
-        return wiki_result
+    return img_message
 
 # Add description here about this if statement.
 if __name__ == "__main__":
     app.run()
+
+
+# comment
+''' Below The predict function with wikipedia included,I had to remove it because
+ some predicted classes were throwing a missing id exception and crashing the app,
+so some error handling needs to be done before it can be used '''
+
+
+'''
+def model_predict(url):
+    """
+       model_predict will return the preprocessed image
+    """
+    # url = flask.request.args.get("url")
+    response = requests.get(url)
+    img = PILImage.create(BytesIO(response.content))
+    prediction = learn.predict(img)[0]
+    img_message = str(prediction)
+    wiki_msg = re.sub("\d+\s\d+\.\d+", "", img_message)
+    wiki_info = wk.summary(wiki_msg, sentences = 3)
+    wiki_result=(f'Result: {img_message}\n'
+            f'\n'
+           f'Summary: {wiki_info}')
+    return wiki_result
+'''
