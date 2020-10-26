@@ -250,7 +250,7 @@ def receive_message():
                     
     return "Message Processed"
 ```
-the function above defines how we receive the messages from facebook messenger. When a message is a text the response is sent from the get_message function, when it is an image, facebook stores the image in a url and the the response will be the out when we run that url through our classifier using the model_predict function. In both cases the send_message function is used to send back the response to the use and it passes in the receipient_id(user) and the message(response).
+the function above defines how we receive the messages from facebook messenger. When a message is a text the response is sent from the get_message function. When it is an image, facebook generates a url for the image and the response will be the output returned when we run that url through our classifier using the model_predict function. In both cases the send_message function is used to send back the response to the user and it passes in the receipient_id(user) and the message(response).
 
 The get_message function:
 ```
