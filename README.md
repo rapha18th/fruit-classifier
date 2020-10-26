@@ -37,6 +37,8 @@ Your notebook instance should look like this now with your settings having GPU a
 
 After the session starts we can begin coding. Add every chunk of code below in its own block in the notebook. Run each block after entering the code.
 
+fastai is a deep learning library built on top of pytorch. It provides practitioners with high-level components that can quickly and easily provide state-of-the-art results in deepl learning. It adds a lot of its own functionality but retains the flexibility of pytorch.
+
 Import the following libraries:
 ```
 from fastai import *
