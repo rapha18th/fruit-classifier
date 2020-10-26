@@ -1,11 +1,11 @@
-#  Build an image classifier using pytorch/fastai and deploy it as a bot on the messenger platform
+#  Build an image classifier using Pytorch/fastai and deploy it as a bot on the messenger platform
 
 ## Overview
 
 In this tutorial, we will train an image classifier on the kaggle fruit 360 dataset using the fastai we will then deploy it as a bot on the messenger platform. The key things we will explore is how to:
 
 *   Use kaggle notebooks to build an image classifier using transfer learning with the fastai library.
-*   How to deploy it using the messenger platform's image upload feature. The messenger platform has a rich interface with all the features needed to deliver an app to users. It is also home to over a billion users so in essence facebook provides you the tools to build your own product and the market itself.
+*   How to deploy it using the messenger platform's image upload feature. The messenger platform has a rich interface with all the features needed to deliver an app to users. It is also home to over a billion users so in essence Facebook provides you the tools to build your own product and the market itself.
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ Your notebook instance should look like this now with your settings having GPU a
 
 After the session starts we can begin coding. Add every chunk of code below in its own block in the notebook. Run each block after entering the code.
 
-fastai is a deep learning library built on top of pytorch. It provides practitioners with high-level components that can quickly and easily provide state-of-the-art results in deepl learning. It adds a lot of its own functionality but retains the flexibility of pytorch.
+Fastai is a deep learning library built on top of pytorch. It provides practitioners with high-level components that can quickly and easily provide state-of-the-art deep learning results. It adds a lot of its own functionality but retains the flexibility of pytorch.
 
 Import the following libraries:
 ```
@@ -56,7 +56,7 @@ path = '../input/fruits/fruits-360'
 ```
 fruit_data = get_image_files(path)
 ```
-The get_image_files function above is a takes a path and returns a list of images all the images in that path.
+The get_image_files function above is a takes a path and returns a list of all the images in that path.
 
 Let us take a look at the data:
 ```
@@ -119,7 +119,7 @@ Selection of our model:
 ```
 learn = cnn_learner(dls,resnet34, metrics=[accuracy, error_rate])
 ```
-Fastai also has a great tool which suggests what learning rate to use to fine tune our model. The learning rate is typcally the steepest point of a gradient descent curve. Gradient descent is an iterative approach to reduce our model's loss, loss meaning bad predictions.
+Fastai also has a great tool which suggests what learning rate to use to fine tune our model. The learning rate is typically the steepest point of a gradient descent curve. Gradient descent is an iterative approach to reduce our model's loss, loss meaning bad predictions.
 
 Finding the learning rate:
 ```
@@ -129,7 +129,7 @@ Output:
 `SuggestedLRs(lr_min=0.010000000149011612, lr_steep=0.0063095735386013985)`
 [![results-23-2.png](https://i.postimg.cc/T2gmMxds/results-23-2.png)](https://postimg.cc/c616wV87)
 
-We pass in the suggested learning rate and train our model which is also evident as the steepest point in the above plot. This should take around 20 minutes to complete, enough time for you to take a break and enjoy your favourite beverage:
+We pass in the suggested learning rate and train our model which is also evident as the steepest point in the above plot. This should take around 20 minutes to complete. Enough time for you to take a break and enjoy your favourite beverage:
 ```
 learn.fine_tune(4, 1e-2)
 ```
@@ -184,7 +184,7 @@ learn.predict(test[1000])[0]
 Output:
 `'Strawberry Wedge'`
 
-It looks like our model is good at guessing the type of fruit, it is now ready for production let us save it:
+It looks like our model is good at guessing the type of fruit. It is now ready for production, let us save it:
 ```
 learn.export('/kaggle/working/export34.pkl')
 ```
@@ -250,7 +250,7 @@ def receive_message():
                     
     return "Message Processed"
 ```
-the function above defines how we receive the messages from facebook messenger. When a message is a text the response is sent from the get_message function. When it is an image, facebook generates a url for the image and the response will be the output returned when we run that url through our classifier using the model_predict function. In both cases the send_message function is used to send back the response to the user and it passes in the receipient_id(user) and the message(response).
+the function above defines how we receive the messages from Facebook messenger. When a message is a text, the response is sent from the get_message function. When it is an image, Facebook generates a url for the image and the response will be the output returned when we run that url through our classifier using the model_predict function. In both cases the send_message function is used to send back the response to the user and it passes in the receipient_id(user) and the message(response).
 
 The get_message function:
 ```
@@ -279,7 +279,7 @@ def model_predict(url):
            f'Summary: {wiki_info}')
     return wiki_result
 ```
-The above function takes in the image url and makes a prediction using the model we built earlier. We also use the wikipedia library to give the user a summary of the predicted class. Earlier you may have seen that some predicted classes contained numbers but they were of no significance so we use regex to get rid of the numbers to make it easier for wikipedia search.
+The above function takes in the image url and makes a prediction using the model we built. We also use the wikipedia library to give the user a summary of the predicted class. Earlier, you may have seen that some predicted classes contained numbers and from further investigation, these numbers had no significance so we use regex to get rid of them. This will then make it easier for wikipedia search.
 
 ## Heroku
 By now you should have a heroku account and installed the heroku command line interface.
@@ -293,7 +293,7 @@ after login:
 ```
 $ heroku create
 ```
-Let us configure our variables, these are the access token from facebook and a verify token that you create yourself(make sure it is unique and keep it safe for later):
+Let us configure our variables, these are the access token from Facebook and a verification token that you create yourself(make sure it is unique and keep it safe for later):
 ```
 $ heroku config:set ACCESS_TOKEN=xxxxxx
 ```
@@ -307,28 +307,30 @@ make note of the url created by heroku we also need it for later.
 When you open the url you should be able to see this in your browser, if you have done everything correctly:
 [![Screenshot-2020-10-26-at-17-37-43.png](https://i.postimg.cc/zXWqr4j2/Screenshot-2020-10-26-at-17-37-43.png)](https://postimg.cc/N5g38JZR)
 
-## Back on the facebook developer portal
+## Back on the Facebook developer portal
 
-Under the messenger settings again add the callback url which is the heroku url of our webhook, you will also be asked for the verify token, it should be the same as the one you created earlier for facebook to verify.
+Under the messenger settings again add the callback url which is the heroku url of our webhook. You will also be asked for the verification token, it should be the same as the one you created earlier for Facebook to verify.
 [![Screenshot-2020-10-25-at-11-07-39.png](https://i.postimg.cc/1X9Gt7M6/Screenshot-2020-10-25-at-11-07-39.png)](https://postimg.cc/N9z9C43f)
 
-Still under the messenger settings click on Add page subscriptions and tick the boxes like below:
+Still under the messenger settings, click on Add page subscriptions and tick the boxes like below:
 [![Screenshot-2020-10-25-at-20-26-47.png](https://i.postimg.cc/SxcrN9fW/Screenshot-2020-10-25-at-20-26-47.png)](https://postimg.cc/CRLDczt1)
 
-Then send a fruit image as a message to your facebook page and you get something like this:
+Then send a fruit image as a message to your Facebook page and you get something like this:
 [![Whats-App-Image-2020-10-26-at-18-57-33.jpg](https://i.postimg.cc/KYj2CGD6/Whats-App-Image-2020-10-26-at-18-57-33.jpg)](https://postimg.cc/0zTFwq3n)
 
 Send text:
 [![Whats-App-Image-2020-10-26-at-19-04-30.jpg](https://i.postimg.cc/vHKsVgFc/Whats-App-Image-2020-10-26-at-19-04-30.jpg)](https://postimg.cc/fJYp4bbN)
 
-To share it with your friends you can add the as test users or send your application for app review to share the bot with world.
+To share it with your friends you can add them as test users or send your application for app review to share the bot with world.
 
-This is the end of the tutorial. I hope you enjoyed the tutorial, you can repeat the steps with an image dataset of your choosing or add features of your own.
+This is the end of the tutorial. I hope you enjoyed it, you can repeat the steps with an image dataset of your choosing or add features of your own.
 
 ## References
 * https://docs.fast.ai/tutorial.vision
 
 * https://www.twilio.com/blog/2017/12/facebook-messenger-bot-python.html
+
+* https://github.com/udodihor/flask-fb-bot
 
 * https://github.com/fastai/fastbook
 
