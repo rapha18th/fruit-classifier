@@ -89,9 +89,9 @@ def model_predict(url):
     img = PILImage.create(BytesIO(response.content))
     prediction = learn.predict(img)[0]
     img_message = str(prediction)
-    #pred_result= (f'prediction: {img_message}\n')
+    pred_result= (f'prediction: {img_message}\n')
             
-    return img_message
+    return pred_result
 
 # Add description here about this if statement.
 if __name__ == "__main__":
