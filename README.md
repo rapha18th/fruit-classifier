@@ -1,6 +1,6 @@
 #  Build an AI image classifier using PyTorch/fastai and deploy it as a bot on the messenger platform
 
-[![logofc.jpg](https://i.postimg.cc/VkpMZPPH/logofc.jpg)](https://postimg.cc/180f4Ttp)
+[![logofc.jpg](https://i.postimg.cc/856VdWB0/logofc.jpg)](https://postimg.cc/JDMgMsFN)
 
 ## Overview
 
