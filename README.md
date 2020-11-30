@@ -354,10 +354,10 @@ Then send a fruit image as a message to your Facebook page and you get something
 Send text:
 [![Whats-App-Image-2020-10-26-at-19-04-30.jpg](https://i.postimg.cc/vHKsVgFc/Whats-App-Image-2020-10-26-at-19-04-30.jpg)](https://postimg.cc/fJYp4bbN)
 
-## Conclusion
+## Next Steps
 To share your AI app with your friends you can add them as test users or send your application for [app review](https://developers.facebook.com/docs/app-review) to share the bot with the world. Here is an example of what a submission would look like for a messenger app: [sample submission](https://developers.facebook.com/docs/app-review/resources/sample-submissions/messenger-platform).
 
-This is the end of the tutorial. I hope you enjoyed it, you can repeat the steps with an image dataset of your choice or add features of your own. Deep learning is not just limited to image classification but you can also create a state-of-the-art [chatbot](https://medium.com/huggingface/how-to-build-a-state-of-the-art-conversational-ai-with-transfer-learning-2d818ac26313), a [text classifier](https://www.analyticsvidhya.com/blog/2020/01/first-text-classification-in-pytorch/), a [text summariser](https://www.thepythoncode.com/article/text-summarization-using-huggingface-transformers-python), run [sentiment analysis](https://bhadreshpsavani.medium.com/tutorial-on-sentimental-analysis-using-pytorch-b1431306a2d7) and [more](https://github.com/pytorch/examples). The world awaits for whatever you intend to build next.
+This is the end of the tutorial. I hope you enjoyed it, you can repeat the steps with an image dataset of your choice or add features of your own. Deep learning is not just limited to image classification, you can also create a state-of-the-art [chatbot](https://medium.com/huggingface/how-to-build-a-state-of-the-art-conversational-ai-with-transfer-learning-2d818ac26313), a [text classifier](https://www.analyticsvidhya.com/blog/2020/01/first-text-classification-in-pytorch/), a [text summariser](https://www.thepythoncode.com/article/text-summarization-using-huggingface-transformers-python), run [sentiment analysis](https://bhadreshpsavani.medium.com/tutorial-on-sentimental-analysis-using-pytorch-b1431306a2d7) and [more](https://github.com/pytorch/examples). The world awaits for whatever you intend to build next.
 
 ## References
 * https://docs.fast.ai/tutorial.vision
