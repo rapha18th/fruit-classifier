@@ -220,7 +220,7 @@ Copy this access token and keep it safe we will use it later.
 
 ## Our Webhook
 
-Let us look at the code which fulfills the requests sent to our bot. It is a simple flask server, I will focus on the functions to send and recieve messages
+Let us look at the code which fulfills the requests sent to our bot. It is a simple [flask](https://towardsai.net/p/programming/create-and-deploy-your-first-flask-app-using-python-and-heroku) server, I will focus on the functions to send and recieve messages
 ```
 # We will receive messages that Facebook sends our bot at this endpoint
 @app.route('/', methods=['GET', 'POST'])
@@ -321,12 +321,14 @@ Then send a fruit image as a message to your Facebook page and you get something
 Send text:
 [![Whats-App-Image-2020-10-26-at-19-04-30.jpg](https://i.postimg.cc/vHKsVgFc/Whats-App-Image-2020-10-26-at-19-04-30.jpg)](https://postimg.cc/fJYp4bbN)
 
-To share it with your friends you can add them as test users or send your application for app review to share the bot with world.
+To share it with your friends you can add them as test users or send your application for [app review](https://developers.facebook.com/docs/app-review) to share the bot with the world. Here is an example of what a submission would look for a messenger app: [sample submission](https://developers.facebook.com/docs/app-review/resources/sample-submissions/messenger-platform).
 
-This is the end of the tutorial. I hope you enjoyed it, you can repeat the steps with an image dataset of your choosing or add features of your own.
+This is the end of the tutorial. I hope you enjoyed it, you can repeat the steps with an image dataset of your choice or add features of your own. This should not just limited to image classification but you can create a state-of-the-art chatbot using deep learning too.
 
 ## References
 * https://docs.fast.ai/tutorial.vision
+
+* https://towardsai.net/p/programming/create-and-deploy-your-first-flask-app-using-python-and-heroku
 
 * https://www.twilio.com/blog/2017/12/facebook-messenger-bot-python.html
 
