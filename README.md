@@ -362,8 +362,6 @@ This is the end of the tutorial. I hope you enjoyed it, you can repeat the steps
 ## References
 * https://docs.fast.ai/tutorial.vision
 
-* https://towardsai.net/p/programming/create-and-deploy-your-first-flask-app-using-python-and-heroku
-
 * https://www.twilio.com/blog/2017/12/facebook-messenger-bot-python.html
 
 * https://github.com/udodihor/flask-fb-bot
