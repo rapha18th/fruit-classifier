@@ -312,7 +312,7 @@ def model_predict(url):
 ```
 The above function takes in the image URL and makes a prediction using the model we built. The pillow library is used to change the URL into a format that can be accepted by our model via the `PILImage.create` method. We also use the Wikipedia library to give the user a summary of the predicted class. Earlier, you may have noticed that some predicted classes contained numbers and from further investigation, I found that these numbers had no significance so we use regex to get rid of them. This will then make it easier for Wikipedia search.
 
-The complete code for the webhook is in the `app.py` file
+The complete code for the webhook is in the `app.py` file. The other files necessary for deployment are the `Procfile` which specifies the commands that are executed by the app on startup, the `requirements.txt` which specifies what python packages are required to run the project. 
 
 ## Heroku
 By now you should have a Heroku account and installed the Heroku command-line interface.
