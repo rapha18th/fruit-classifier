@@ -231,7 +231,7 @@ ACCESS_TOKEN = os.environ['ACCESS_TOKEN']
 VERIFY_TOKEN = os.environ['VERIFY_TOKEN']
 bot = Bot(ACCESS_TOKEN)
 ```
-Firstly we initialise our flask application and set our environment variables, which we have saved as ACCESS_TOKEN and VERIFY_TOKEN on Heroku's system and we use `os.environ['']` to read them. `Bot` is a class in the [pymessenger](https://github.com/davidchua/pymessenger) library which contains the functions which we will use to interact with the messenger platform. 
+Firstly we initialise our flask application and set our environment variables, which we have saved as ACCESS_TOKEN and VERIFY_TOKEN on Heroku's system and we use `os.environ['']` to access them. `Bot` is a class in the [pymessenger](https://github.com/davidchua/pymessenger) library which contains the functions which we will use to interact with the messenger platform. It passes in the access token. 
 
 ```
 # We will receive messages that Facebook sends our bot at this endpoint
