@@ -1,10 +1,10 @@
-#  Build an image classifier using Pytorch/fastai and deploy it as a bot on the messenger platform
+#  Build an AI image classifier using Pytorch/fastai and deploy it as a bot on the messenger platform
 
 ## Overview
 
 In this tutorial, we will train an image classifier on the kaggle fruit 360 dataset using the fastai we will then deploy it as a bot on the messenger platform. The key things we will explore is how to:
 
-*   Use kaggle notebooks to build an image classifier using transfer learning with the fastai library.
+*   Use kaggle notebooks to build an Artificial Intelligence (AI) image classifier using transfer learning with the fastai library.
 *   How to deploy it using the messenger platform's image upload feature. The messenger platform has a rich interface with all the features needed to deliver an app to users. It is also home to over a billion users so in essence Facebook provides you the tools to build your own product and the market itself.
 
 ## Prerequisites
@@ -321,9 +321,9 @@ Then send a fruit image as a message to your Facebook page and you get something
 Send text:
 [![Whats-App-Image-2020-10-26-at-19-04-30.jpg](https://i.postimg.cc/vHKsVgFc/Whats-App-Image-2020-10-26-at-19-04-30.jpg)](https://postimg.cc/fJYp4bbN)
 
-To share it with your friends you can add them as test users or send your application for [app review](https://developers.facebook.com/docs/app-review) to share the bot with the world. Here is an example of what a submission would look for a messenger app: [sample submission](https://developers.facebook.com/docs/app-review/resources/sample-submissions/messenger-platform).
+To share your AI app with your friends you can add them as test users or send your application for [app review](https://developers.facebook.com/docs/app-review) to share the bot with the world. Here is an example of what a submission would look for a messenger app: [sample submission](https://developers.facebook.com/docs/app-review/resources/sample-submissions/messenger-platform).
 
-This is the end of the tutorial. I hope you enjoyed it, you can repeat the steps with an image dataset of your choice or add features of your own. This should not just limited to image classification but you can create a state-of-the-art chatbot using deep learning too.
+This is the end of the tutorial. I hope you enjoyed it, you can repeat the steps with an image dataset of your choice or add features of your own. This should not just limited to image classification but you can also create a state-of-the-art [chatbot](https://medium.com/huggingface/how-to-build-a-state-of-the-art-conversational-ai-with-transfer-learning-2d818ac26313) using deep learning.
 
 ## References
 * https://docs.fast.ai/tutorial.vision
@@ -337,7 +337,7 @@ This is the end of the tutorial. I hope you enjoyed it, you can repeat the steps
 * https://github.com/fastai/fastbook
 
 ## License
-Build an image classifier using pytorch/fastai and deploy it as a bot on the messenger platform is licensed, as found in the [LICENSE](https://github.com/rapha18th/fruit-classifier/blob/master/LICENSE) file.
+Build an AI image classifier using pytorch/fastai and deploy it as a bot on the messenger platform is licensed, as found in the [LICENSE](https://github.com/rapha18th/fruit-classifier/blob/master/LICENSE) file.
 
 
 
