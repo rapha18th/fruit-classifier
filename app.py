@@ -93,7 +93,7 @@ def model_predict(url):
             
     return pred_result
 
-# Add description here about this if statement.
+
 if __name__ == "__main__":
     app.run()
 

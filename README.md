@@ -220,7 +220,17 @@ Copy this access token and keep it safe we will use it later.
 
 ## Our Webhook
 
-Let us look at the code which fulfills the requests sent to our bot. It is a simple [flask](https://towardsai.net/p/programming/create-and-deploy-your-first-flask-app-using-python-and-heroku) server, I will focus on the functions to send and recieve messages
+Let us look at the code which fulfills the requests sent to our bot. It is a simple [flask](https://towardsai.net/p/programming/create-and-deploy-your-first-flask-app-using-python-and-heroku) server.
+
+```
+app = Flask(__name__)      
+
+ACCESS_TOKEN = os.environ['ACCESS_TOKEN']
+VERIFY_TOKEN = os.environ['VERIFY_TOKEN']
+bot = Bot(ACCESS_TOKEN)
+```
+Firstly we initialise our flask application and set our environment variables, which we have saved as ACCESS_TOKEN and VERIFY_TOKEN on Heroku's system and we use os.environ[''] to read them.
+
 ```
 # We will receive messages that Facebook sends our bot at this endpoint
 @app.route('/', methods=['GET', 'POST'])
@@ -249,8 +259,18 @@ def receive_message():
                             send_message(recipient_id, pred_message)
                     
     return "Message Processed"
+
+def verify_fb_token(token_sent):
+    # take token sent by Facebook and verify it matches the verify token you sent
+    # if they match, allow the request, else return an error
+    if token_sent == VERIFY_TOKEN:
+        return request.args.get("hub.challenge")
+    return 'Invalid verification token'
+
 ```
-the function above defines how we receive the messages from Facebook messenger. When a message is a text, the response is sent from the get_message function. When it is an image, Facebook generates a url for the image and the response will be the output returned when we run that url through our classifier using the model_predict function. In both cases the send_message function is used to send back the response to the user and it passes in the receipient_id(user) and the message(response).
+the function above defines how we receive the messages from Facebook messenger. In our app route '/' we handle two types of requests. The `GET` method checks for the verify token while the `POST` method is used by Facebook to send our bot messenger sent by a user on our Messenger application. When a message is a text, the response is sent from the get_message function. When it is an image, Facebook generates a url for the image and the response will be the output returned when we run that url through our classifier using the model_predict function. In both cases the send_message function is used to send back the response to the user and it passes in the receipient_id(user) and the message(response). We specify attachment type as images  because our model can only classify images.
+
+The `verify_fb_token` function checks if token indeed matches the one sent by facebook.
 
 The get_message function:
 ```
@@ -261,7 +281,16 @@ def get_message():
                         
     return random.choice(sample_responses)
 ```
+
 The above function acts as the response to whatever text the user sends since we are focusing on fruit images.
+
+
+```
+path = Path()
+Path().ls(file_exts='.pkl')
+learn = load_learner(path/'models/export34.pkl')
+```
+We use the os library to find the path to our model which is stored in the models directory. We then use the load_learner method from fastai to store our model as the variable 'learn'.
 
 The model_predict function:
 ```
@@ -279,7 +308,7 @@ def model_predict(url):
            f'Summary: {wiki_info}')
     return wiki_result
 ```
-The above function takes in the image url and makes a prediction using the model we built. We also use the wikipedia library to give the user a summary of the predicted class. Earlier, you may have seen that some predicted classes contained numbers and from further investigation, these numbers had no significance so we use regex to get rid of them. This will then make it easier for wikipedia search.
+The above function takes in the image url and makes a prediction using the model we built. The pillow library is used to change the url into a format that can be accepted by our model via the `PILImage.create` method. We also use the wikipedia library to give the user a summary of the predicted class. Earlier, you may have seen that some predicted classes contained numbers and from further investigation, these numbers had no significance so we use regex to get rid of them. This will then make it easier for wikipedia search.
 
 ## Heroku
 By now you should have a heroku account and installed the heroku command line interface.
