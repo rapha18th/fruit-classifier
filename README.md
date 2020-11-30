@@ -1,5 +1,7 @@
 #  Build an AI image classifier using PyTorch/fastai and deploy it as a bot on the messenger platform
 
+[![logofc.jpg](https://i.postimg.cc/VkpMZPPH/logofc.jpg)](https://postimg.cc/180f4Ttp)
+
 ## Overview
 
 In this tutorial, we will train an image classifier on the Kaggle fruit 360 dataset using the fastai library we will then deploy it as a bot on the messenger platform. The key things we will explore is how to:
@@ -310,7 +312,7 @@ def model_predict(url):
 ```
 The above function takes in the image URL and makes a prediction using the model we built. The pillow library is used to change the URL into a format that can be accepted by our model via the `PILImage.create` method. We also use the Wikipedia library to give the user a summary of the predicted class. Earlier, you may have noticed that some predicted classes contained numbers and from further investigation, I found that these numbers had no significance so we use regex to get rid of them. This will then make it easier for Wikipedia search.
 
-The complete code for the webhook is in the app.py file
+The complete code for the webhook is in the `app.py` file
 
 ## Heroku
 By now you should have a Heroku account and installed the Heroku command-line interface.
