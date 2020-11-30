@@ -274,7 +274,7 @@ the function above defines how we receive the messages from Facebook messenger. 
 
 The `verify_fb_token` function checks if token indeed matches the one sent by Facebook.
 
-The get_message function:
+The `get_message` function:
 ```
 def get_message():
     sample_responses = ["Sorry I'm not smart enough to engage in natural conversation yet, I only understand images of fruit", 
@@ -294,7 +294,7 @@ learn = load_learner(path/'models/export34.pkl')
 ```
 We use `Path()` from the os library to find the path to our model which is stored in the `models` directory. We then use the load_learner method from fastai to store our model as the variable `learn`.
 
-The model_predict function:
+The `model_predict` function:
 ```
 # Process the image and prediction
 @app.route('/analyse', methods=['GET', 'POST'])
