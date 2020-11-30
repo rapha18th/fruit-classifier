@@ -290,7 +290,7 @@ path = Path()
 Path().ls(file_exts='.pkl')
 learn = load_learner(path/'models/export34.pkl')
 ```
-We use the os library to find the path to our model which is stored in the models directory. We then use the load_learner method from fastai to store our model as the variable 'learn'.
+We use `Path()` from the os library to find the path to our model which is stored in the models directory. We then use the load_learner method from fastai to store our model as the variable `learn`.
 
 The model_predict function:
 ```
@@ -308,7 +308,9 @@ def model_predict(url):
            f'Summary: {wiki_info}')
     return wiki_result
 ```
-The above function takes in the image url and makes a prediction using the model we built. The pillow library is used to change the url into a format that can be accepted by our model via the `PILImage.create` method. We also use the wikipedia library to give the user a summary of the predicted class. Earlier, you may have seen that some predicted classes contained numbers and from further investigation, these numbers had no significance so we use regex to get rid of them. This will then make it easier for wikipedia search.
+The above function takes in the image url and makes a prediction using the model we built. The pillow library is used to change the url into a format that can be accepted by our model via the `PILImage.create` method. We also use the wikipedia library to give the user a summary of the predicted class. Earlier, you may have noticed that some predicted classes contained numbers and from further investigation, I found that these numbers had no significance so we use regex to get rid of them. This will then make it easier for wikipedia search.
+
+The complete code for the webhook is in the app.py file
 
 ## Heroku
 By now you should have a heroku account and installed the heroku command line interface.
@@ -350,9 +352,10 @@ Then send a fruit image as a message to your Facebook page and you get something
 Send text:
 [![Whats-App-Image-2020-10-26-at-19-04-30.jpg](https://i.postimg.cc/vHKsVgFc/Whats-App-Image-2020-10-26-at-19-04-30.jpg)](https://postimg.cc/fJYp4bbN)
 
+## Conclusion
 To share your AI app with your friends you can add them as test users or send your application for [app review](https://developers.facebook.com/docs/app-review) to share the bot with the world. Here is an example of what a submission would look for a messenger app: [sample submission](https://developers.facebook.com/docs/app-review/resources/sample-submissions/messenger-platform).
 
-This is the end of the tutorial. I hope you enjoyed it, you can repeat the steps with an image dataset of your choice or add features of your own. This should not just limited to image classification but you can also create a state-of-the-art [chatbot](https://medium.com/huggingface/how-to-build-a-state-of-the-art-conversational-ai-with-transfer-learning-2d818ac26313) using deep learning.
+This is the end of the tutorial. I hope you enjoyed it, you can repeat the steps with an image dataset of your choice or add features of your own. This should not just limited to image classification but you can also create a state-of-the-art [chatbot](https://medium.com/huggingface/how-to-build-a-state-of-the-art-conversational-ai-with-transfer-learning-2d818ac26313), a document summariser or run sentiment analysis using deep learning.
 
 ## References
 * https://docs.fast.ai/tutorial.vision
